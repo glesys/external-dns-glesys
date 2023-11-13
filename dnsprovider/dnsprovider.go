@@ -45,7 +45,7 @@ type GlesysProvider struct {
 	DryRun bool
 }
 
-func NewGlesysProvider(dryRun bool) (*GlesysProvider, error) {
+func NewGlesysProvider(dryRun bool, version string) (*GlesysProvider, error) {
 	project, ok := os.LookupEnv("GLESYS_PROJECT")
 	if !ok {
 		return nil, fmt.Errorf("GLESYS_PROJECT not found")
@@ -56,7 +56,7 @@ func NewGlesysProvider(dryRun bool) (*GlesysProvider, error) {
 		return nil, fmt.Errorf("GLESYS_ACCESS_KEY not found")
 	}
 
-	var client = *glesys.NewClient(project, apikey, "ExternalDNS/v0.001")
+	var client = *glesys.NewClient(project, apikey, "ExternalDNS/"+version)
 	p := &GlesysProvider{
 		Client: client,
 		DryRun: dryRun,

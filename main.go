@@ -48,7 +48,7 @@ func main() {
 	logging.Init()
 	config := configuration.Init()
 
-	provider, err := dnsprovider.NewGlesysProvider(false)
+	provider, err := dnsprovider.NewGlesysProvider(false, Version)
 	if err != nil {
 		log.Fatalf("Failed to initialize DNS provider: %v", err)
 	}

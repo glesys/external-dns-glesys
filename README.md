@@ -166,3 +166,6 @@ curl http://localhost:8888/records -H 'Accept: application/external.dns.webhook+
 ]
 ```
 
+## How To Contribute
+
+Development happens at GitHub; any typical workflow using Pull Requests are welcome. In the same spirit, we use the GitHub issue tracker for all reports (regardless of the nature of the report, feature request, bugs, etc.).
