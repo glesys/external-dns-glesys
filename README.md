@@ -55,7 +55,7 @@ spec:
             - --source=ingress
             - --provider=webhook
 
-        - image: https://ghcr.io/glesys/external-dns-glesys:latest
+        - image: ghcr.io/glesys/external-dns-glesys:v0.0.2
           name: glesys-webhook
           ports:
             - containerPort: 8888
