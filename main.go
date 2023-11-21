@@ -40,7 +40,7 @@ const banner = `
 `
 
 var (
-	Version = "dev-0.2"
+	Version = "v0.0.2"
 )
 
 func main() {

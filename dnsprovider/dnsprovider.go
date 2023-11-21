@@ -56,7 +56,7 @@ func NewGlesysProvider(dryRun bool, version string) (*GlesysProvider, error) {
 		return nil, fmt.Errorf("GLESYS_ACCESS_KEY not found")
 	}
 
-	var client = *glesys.NewClient(project, apikey, "ExternalDNS/"+version)
+	var client = *glesys.NewClient(project, apikey, "external-dns-glesys/"+version)
 	p := &GlesysProvider{
 		Client: client,
 		DryRun: dryRun,
