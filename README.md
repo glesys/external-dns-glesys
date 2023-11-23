@@ -138,6 +138,15 @@ metadata:
   annotations:
     external-dns.alpha.kubernetes.io/internal-hostname: nginxinternal.example.com.
     external-dns.alpha.kubernetes.io/hostname: nginx.example.com.
+
+spec:
+  selector:
+    app: nginx
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
 ```
 
 
