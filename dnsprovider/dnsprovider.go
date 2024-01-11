@@ -157,6 +157,9 @@ func processDeleteActions(
 }
 func getTTLFromEndpoint(ep *endpoint.Endpoint) int {
 	if ep.RecordTTL.IsConfigured() {
+		if ep.RecordTTL < 60 {
+			return 60
+		}
 		return int(ep.RecordTTL)
 	}
 	return glesysRecordTTL
