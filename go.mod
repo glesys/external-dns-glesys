@@ -7,7 +7,7 @@ toolchain go1.23.7
 require (
 	github.com/caarlos0/env/v8 v8.0.0
 	github.com/glesys/glesys-go/v7 v7.1.0
-	github.com/go-chi/chi/v5 v5.0.10
+	github.com/go-chi/chi/v5 v5.2.1
 	github.com/google/go-cmp v0.6.0
 	github.com/sirupsen/logrus v1.9.3
 	github.com/stretchr/testify v1.8.4
