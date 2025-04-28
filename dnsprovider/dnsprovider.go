@@ -19,7 +19,7 @@ package dnsprovider
 import (
 	"context"
 	"fmt"
-	"github.com/glesys/glesys-go/v7"
+	"github.com/glesys/glesys-go/v8"
 	log "github.com/sirupsen/logrus"
 	"os"
 	"sigs.k8s.io/external-dns/endpoint"

@@ -18,7 +18,7 @@ package dnsprovider
 
 import (
 	"fmt"
-	"github.com/glesys/glesys-go/v7"
+	"github.com/glesys/glesys-go/v8"
 	"github.com/google/go-cmp/cmp"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
