@@ -49,13 +49,13 @@ spec:
       serviceAccountName: external-dns
       containers:
         - name: external-dns
-          image: registry.k8s.io/external-dns/external-dns:v0.14.0
+          image: registry.k8s.io/external-dns/external-dns:v0.16.1
           args:
             - --source=service
             - --source=ingress
             - --provider=webhook
 
-        - image: ghcr.io/glesys/external-dns-glesys:v0.0.5
+        - image: ghcr.io/glesys/external-dns-glesys:v0.0.7
           name: glesys-webhook
           ports:
             - containerPort: 8888
