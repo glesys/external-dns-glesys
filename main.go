@@ -18,6 +18,7 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/glesys/external-dns-glesys/dnsprovider"
 	"github.com/glesys/external-dns-glesys/webhook"
 	"github.com/glesys/external-dns-glesys/webhook/configuration"
@@ -40,7 +41,7 @@ const banner = `
 `
 
 var (
-	Version = "v0.0.3"
+	Version = "v0.0.8"
 )
 
 func main() {
