@@ -19,8 +19,8 @@ github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSs
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc h1:U9qPSI2PIWSS1VwoXQT9A3Wy9MM3WgvqSxFWenqJduM=
 github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
-github.com/glesys/glesys-go/v8 v8.4.0 h1:+cYvgaVfJsqvt7biY6nheb0A8sbgXDyIa1oPcFzZq5M=
-github.com/glesys/glesys-go/v8 v8.4.0/go.mod h1:9FygXvtypOc/PCEVDQeIxI0mDFiGOJ7B51UxAeI/dqw=
+github.com/glesys/glesys-go/v8 v8.5.0 h1:Chsz8cuNTcPibkhnAiWOxzDaYqwjNvPe+4pPRH9bK60=
+github.com/glesys/glesys-go/v8 v8.5.0/go.mod h1:4URp/mo9DCsIvc3qVkXzyWQIURfbaZnp/455lki+GCU=
 github.com/go-chi/chi/v5 v5.2.3 h1:WQIt9uxdsAbgIYgid+BpYc+liqQZGMHRaUwp0JUcvdE=
 github.com/go-chi/chi/v5 v5.2.3/go.mod h1:L2yAIGWB3H+phAw1NxKwWM+7eUH/lU8pOMm5hHcoops=
 github.com/go-logr/logr v1.4.3 h1:CjnDlHq8ikf6E492q6eKboGOC0T8CDaOvkHCIg8idEI=
