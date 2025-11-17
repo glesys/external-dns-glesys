@@ -20,14 +20,16 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"github.com/glesys/external-dns-glesys/webhook"
-	"github.com/glesys/external-dns-glesys/webhook/configuration"
-	"github.com/go-chi/chi/v5"
 	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
 	"time"
+
+	"github.com/glesys/external-dns-glesys/webhook"
+	"github.com/glesys/external-dns-glesys/webhook/configuration"
+	"github.com/go-chi/chi/v5"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 
 	log "github.com/sirupsen/logrus"
 )
@@ -39,21 +41,33 @@ import (
 // - /records (POST): applies the changes
 // - /adjustendpoints (POST): executes the AdjustEndpoints method
 func Init(config configuration.Config, p *webhook.Webhook) *http.Server {
-	r := chi.NewRouter()
-	r.Use(webhook.Health)
-	r.Get("/", p.Negotiate)
-	r.Get("/records", p.Records)
-	r.Post("/records", p.ApplyChanges)
-	r.Post("/adjustendpoints", p.AdjustEndpoints)
+	rWebhook := chi.NewRouter()
+	rWebhook.Get("/", p.Negotiate)
+	rWebhook.Get("/records", p.Records)
+	rWebhook.Post("/records", p.ApplyChanges)
+	rWebhook.Post("/adjustendpoints", p.AdjustEndpoints)
 
-	srv := createHTTPServer(fmt.Sprintf("%s:%d", config.ServerHost, config.ServerPort), r, config.ServerReadTimeout, config.ServerWriteTimeout)
+	srvWebhook := createHTTPServer(fmt.Sprintf("%s:%d", config.ServerHost, config.ServerPort), rWebhook, config.ServerReadTimeout, config.ServerWriteTimeout)
 	go func() {
-		log.Infof("starting server on addr: '%s' ", srv.Addr)
-		if err := srv.ListenAndServe(); err != nil && !errors.Is(err, http.ErrServerClosed) {
-			log.Errorf("can't serve on addr: '%s', error: %v", srv.Addr, err)
+		log.Infof("starting server on addr: '%s' ", srvWebhook.Addr)
+		if err := srvWebhook.ListenAndServe(); err != nil && !errors.Is(err, http.ErrServerClosed) {
+			log.Errorf("can't serve on addr: '%s', error: %v", srvWebhook.Addr, err)
 		}
 	}()
-	return srv
+	// https://kubernetes-sigs.github.io/external-dns/latest/docs/tutorials/webhook-provider/#exposed-endpoints
+	rExposed := chi.NewRouter()
+	rExposed.Get("/health", healthCheckHandler)
+	rExposed.Get("/metrics", promhttp.Handler().ServeHTTP)
+
+	srvExposed := createHTTPServer(fmt.Sprintf("%s:%d", config.MetricsHost, config.MetricsPort), rExposed, config.ServerReadTimeout, config.ServerWriteTimeout)
+	go func() {
+		log.Infof("starting server for exposed endpoints on addr: '%s'", srvExposed.Addr)
+		if err := srvExposed.ListenAndServe(); err != nil && !errors.Is(err, http.ErrServerClosed) {
+			log.Errorf("can't start exposed server on addr: '%s', error: %v", srvExposed.Addr, err)
+		}
+	}()
+
+	return srvWebhook
 }
 
 func createHTTPServer(addr string, hand http.Handler, readTimeout, writeTimeout time.Duration) *http.Server {
@@ -76,4 +90,8 @@ func ShutdownGracefully(srv *http.Server) {
 		log.Errorf("error shutting down server: %v", err)
 	}
 	cancel()
+}
+
+func healthCheckHandler(w http.ResponseWriter, _ *http.Request) {
+	w.WriteHeader(http.StatusOK)
 }
