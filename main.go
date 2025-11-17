@@ -41,7 +41,7 @@ const banner = `
 `
 
 var (
-	Version = "v0.0.8"
+	Version = "v0.0.9"
 )
 
 func main() {
