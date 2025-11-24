@@ -18,14 +18,15 @@ package dnsprovider
 
 import (
 	"fmt"
+	"reflect"
+	"sort"
+	"testing"
+
 	"github.com/glesys/glesys-go/v8"
 	"github.com/google/go-cmp/cmp"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"reflect"
 	"sigs.k8s.io/external-dns/endpoint"
-	"sort"
-	"testing"
 )
 
 func isEmpty(xs interface{}) bool {
@@ -216,7 +217,7 @@ func TestGlesysProcessDeleteActions(t *testing.T) {
 			{
 				DomainName: "example.com",
 				RecordID:   1,
-				Host:       "foo",
+				Host:       "bar",
 				Type:       endpoint.RecordTypeA,
 				Data:       "1.2.3.4",
 				TTL:        glesysRecordTTL,
