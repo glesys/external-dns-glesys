@@ -5,7 +5,7 @@ go 1.25
 require (
 	github.com/caarlos0/env/v8 v8.0.0
 	github.com/glesys/glesys-go/v8 v8.5.0
-	github.com/go-chi/chi/v5 v5.2.3
+	github.com/go-chi/chi/v5 v5.2.4
 	github.com/google/go-cmp v0.7.0
 	github.com/prometheus/client_golang v1.23.2
 	github.com/sirupsen/logrus v1.9.3
