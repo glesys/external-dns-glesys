@@ -1,6 +1,6 @@
-FROM golang:1.25-alpine as base
+FROM golang:1.26-alpine AS base
 
-FROM base as builder
+FROM base AS builder
 # Work directory
 WORKDIR /build
 
