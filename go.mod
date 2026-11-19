@@ -4,7 +4,7 @@ go 1.27.3
 
 require (
 	github.com/caarlos0/env/v8 v8.0.0
-	github.com/glesys/glesys-go/v8 v8.5.0
+	github.com/glesys/glesys-go/v8 v8.6.0
 	github.com/go-chi/chi/v5 v5.5.0
 	github.com/google/go-cmp v0.7.0
 	github.com/prometheus/client_golang v1.25.0
