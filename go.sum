@@ -18,8 +18,8 @@ github.com/evanphx/json-patch/v5 v5.9.11 h1:/8HVnzMq13/3x9TPvjG08wUGqBTmZBsCWzjT
 github.com/evanphx/json-patch/v5 v5.9.11/go.mod h1:3j+LviiESTElxA4p3EMKAB9HXj3/XEtnUf6OZxqIQTM=
 github.com/fxamacker/cbor/v2 v2.9.3 h1:oQBnFATpNdY8gJHTndDDv5Xl4QqNaz51G5LLEPhng3Q=
 github.com/fxamacker/cbor/v2 v2.9.3/go.mod h1:vM4b+DJCtHn+zz7h3FFp/hDAI9WNWCsZj23V5ytsSxQ=
-github.com/glesys/glesys-go/v8 v8.5.0 h1:Chsz8cuNTcPibkhnAiWOxzDaYqwjNvPe+4pPRH9bK60=
-github.com/glesys/glesys-go/v8 v8.5.0/go.mod h1:4URp/mo9DCsIvc3qVkXzyWQIURfbaZnp/455lki+GCU=
+github.com/glesys/glesys-go/v8 v8.6.0 h1:9ppMxd+UX03YjuT3s1jVrA6uy00txtpz+YFigS4VNeQ=
+github.com/glesys/glesys-go/v8 v8.6.0/go.mod h1:g3M6esyBzijwiYR/5abDZqz5JkgOT0w8DpsoOvzyt9A=
 github.com/go-chi/chi/v5 v5.5.0 h1:xdKQ1dJmVJsmgahrXSKhUx8NyVPzpwdlyrrQFpMPJgg=
 github.com/go-chi/chi/v5 v5.5.0/go.mod h1:d1IG7GtKPSjPyBP365PH8sAGVHk3qfB/IhjFNRH1wWM=
 github.com/go-logr/logr v1.4.4 h1:tG4xh9yMsRCAiodLVTxyrkzSZ9+o0L1Kg/+cPVcbP/8=
